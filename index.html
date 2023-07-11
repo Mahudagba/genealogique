@@ -33,16 +33,25 @@
   <title>genealogique</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
+  <!-- <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = '2833439050';
   </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+   This script adds the flutter initialization JS code 
+  <script src="flutter.js" defer></script> -->
 </head>
 
 <body>
+
   <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js?v=2833439050');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+  <!-- <script>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -56,7 +65,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
